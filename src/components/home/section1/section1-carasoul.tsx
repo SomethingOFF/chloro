@@ -1,7 +1,6 @@
 import CarasoulModel from "@/components/model/carasoul-model";
 import ImageModel from "@/components/model/image-model";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import React from "react";
 
 const Section1Carasoul = () => {
@@ -24,7 +23,7 @@ const Section1Carasoul = () => {
     },
   ];
   return (
-    <CarasoulModel move={2} data={data}>
+    <CarasoulModel move={2} length={data.length}>
       {data.map(({ imageUrl, id }) => (
         <div
           className={cn(

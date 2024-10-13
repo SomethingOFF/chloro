@@ -3,19 +3,19 @@ import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 
 interface CarouselModelProps {
-  data?: any[];
+  length: number;
   children: React.ReactNode;
-  move?: number; // Default move for larger screens
+  move?: number; 
 }
 
 const CarouselModel: React.FC<CarouselModelProps> = ({
-  data = Array(5).fill(null),
+  length ,
   children,
   move = 1,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [responsiveMove, setResponsiveMove] = useState(move);
-  const dataLength = data.length;
+  const dataLength = length
 
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
@@ -94,7 +94,7 @@ const CarouselModel: React.FC<CarouselModelProps> = ({
           </div>
         </div>
         <div className="flex items-center justify-center h-10 space-x-2 transition-all">
-          {data.map((_, index) => {
+          { Array(length).fill(null).map((_, index) => {
             const isActive = currentIndex === index;
             const isAdjacent =
               currentIndex + 1 === index || currentIndex - 1 === index;

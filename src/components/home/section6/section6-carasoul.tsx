@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 const Section6Carasoul = () => {
   return (
-    <CarasoulModel move={1} data={data}>
+    <CarasoulModel move={1} length={data.length}>
       {data.map(({ name, id, content }) => (
         <div
           className={cn(
